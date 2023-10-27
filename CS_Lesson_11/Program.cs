@@ -13,7 +13,7 @@ namespace CS_Lesson_11
         static void Main(string[] args)
         {
             //Lesson();
-            // Task_1();
+            Task_1();
             
 
         }
@@ -158,9 +158,15 @@ namespace CS_Lesson_11
                         continue;
                     }
                     var selectedTrains = trains.FirstOrDefault(t => t.Number == number);
-                    Console.WriteLine(selectedTrains);
-                    trains.Remove(selectedTrains);
-                    Console.WriteLine("Поезд удалён");
+                    if (selectedTrains.DeparturePoint == null)
+                    {
+                        Console.WriteLine("Поезд не найден");
+                    }
+                    else
+                    {
+                        trains.Remove(selectedTrains);
+                        Console.WriteLine("Поезд удалён");
+                    }
                     Console.ReadKey();
                     Console.Clear();
                 }
